@@ -98,7 +98,7 @@ body {
 .menu-button     { top: 0; left: 50%; transform: translate(-50%, 0); }
 .forward-button  { top: 45%; right: 0; transform: translate(0, -50%); }
 .backward-button { top: 45%; left: 0; transform: translate(0, -50%); }
-.down-button     { top: 100%; left: 50%; transform: translate(-50%, -100%); }
+.down-button     { top: 90%; left: 50%; transform: translate(-50%, -50%); }
 .center-button   { top: 45%; left: 50%; width: 90px; height: 90px; transform: translate(-50%, -50%); }
 
 
