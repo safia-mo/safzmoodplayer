@@ -58,21 +58,6 @@ function startPlayback() {
   }
   showPlayer();
 
-  // Helper: attempt to play starting at a specific index
-  function tryPlay(index = 0) {
-    try {
-      player.loadPlaylist({
-        list: listId,
-        listType: "playlist",
-        index: index
-      });
-      player.playVideo && player.playVideo();
-    } catch (e) {
-      setOverlay("Error: cannot load video");
-      console.warn("Failed to play video at index", index, e);
-    }
-  }
-
   if (!player) {
     player = new YT.Player("player", {
       height: "100%",
@@ -90,22 +75,16 @@ function startPlayback() {
           else if (e.data === YT.PlayerState.BUFFERING) setOverlay("Buffering…");
         },
         onError: (e) => {
-          console.warn("Video error, skipping to next", e);
-          const currentIndex = player.getPlaylistIndex();
-          const playlistLength = player.getPlaylist()?.length || 0;
-          if (playlistLength > currentIndex + 1) {
-            tryPlay(currentIndex + 1); // skip to next
-          } else {
-            setOverlay("Error: cannot load video");
-          }
+          console.warn("Video error", e);
+          setOverlay("Error: cannot load video");
+          },
         },
-      },
-    });
-  } else {
-    tryPlay(0);
+      });
+     } else {
+    player.loadPlaylist({ list: listId, listType: "playlist", index: 0 });
+    player.playVideo && player.playVideo();
   }
 }
-
 
 // Button references
 const btnMenu = document.querySelector(".menu-button");
@@ -159,7 +138,6 @@ btnBack.addEventListener("click", () => {
   }
 });
 
-// Allow clicking moods directly
 items.forEach((li, i) => {
   li.addEventListener("click", () => {
     selectIndex(i);
@@ -167,7 +145,6 @@ items.forEach((li, i) => {
   });
 });
 
-// IFrame API ready
 window.onYouTubeIframeAPIReady = function () {
   setOverlay("Select a mood");
 };
