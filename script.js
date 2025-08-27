@@ -11,7 +11,7 @@ function getPlaylistId(input) {
 }
 
 let player = null;
-let mode = "menu"; 
+let mode = "menu"; // 'menu' | 'playing'
 
 const moodListEl = document.getElementById("mood-list");
 const overlayEl = document.getElementById("screen-overlay");
@@ -58,29 +58,19 @@ function startPlayback() {
   }
   showPlayer();
 
+  // Helper: attempt to play starting at a specific index
   function tryPlay(index = 0) {
-    if (!player) return;
-
-    setTimeout(() => {
-      try {
-        const playlistLength = player.getPlaylist()?.length || 50;
-        if (index >= playlistLength) {
-          setOverlay("No playable videos in playlist");
-          return;
-        }
-
-        player.loadPlaylist({
-          list: listId,
-          listType: "playlist",
-          index: index
-        });
-
-        player.playVideo && player.playVideo();
-      } catch (e) {
-        console.warn("Video error, skipping to next", e);
-        tryPlay(index + 1);
-      }
-    }, 100);
+    try {
+      player.loadPlaylist({
+        list: listId,
+        listType: "playlist",
+        index: index
+      });
+      player.playVideo && player.playVideo();
+    } catch (e) {
+      setOverlay("Error: cannot load video");
+      console.warn("Failed to play video at index", index, e);
+    }
   }
 
   if (!player) {
@@ -91,7 +81,7 @@ function startPlayback() {
       events: {
         onReady: () => {
           setOverlay("Playing…");
-          tryPlay(0);
+          player.playVideo && player.playVideo();
         },
         onStateChange: (e) => {
           if (e.data === YT.PlayerState.PLAYING) setOverlay("Playing…");
@@ -101,8 +91,13 @@ function startPlayback() {
         },
         onError: (e) => {
           console.warn("Video error, skipping to next", e);
-          const currentIndex = player.getPlaylistIndex() ?? 0;
-          tryPlay(currentIndex + 1);
+          const currentIndex = player.getPlaylistIndex();
+          const playlistLength = player.getPlaylist()?.length || 0;
+          if (playlistLength > currentIndex + 1) {
+            tryPlay(currentIndex + 1); // skip to next
+          } else {
+            setOverlay("Error: cannot load video");
+          }
         },
       },
     });
@@ -112,6 +107,7 @@ function startPlayback() {
 }
 
 
+// Button references
 const btnMenu = document.querySelector(".menu-button");
 const btnFwd = document.querySelector(".forward-button");
 const btnBack = document.querySelector(".backward-button");
@@ -163,6 +159,7 @@ btnBack.addEventListener("click", () => {
   }
 });
 
+// Allow clicking moods directly
 items.forEach((li, i) => {
   li.addEventListener("click", () => {
     selectIndex(i);
@@ -170,15 +167,9 @@ items.forEach((li, i) => {
   });
 });
 
+// IFrame API ready
 window.onYouTubeIframeAPIReady = function () {
   setOverlay("Select a mood");
 };
 
 showMenu();
-
-
-
-
-
-
-
