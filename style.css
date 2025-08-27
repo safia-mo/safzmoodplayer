@@ -85,20 +85,18 @@ body {
   position: absolute;
   width: 60px; height: 60px;
   border: none;
-  background: rgba(255,255,255,0.15);
+  background: transparent;
   cursor: pointer;
   border-radius: 50%;
   transition: transform 0.06s, background 0.2s;
   outline: none;
 }
-.ipod-buttons button:active { transform: scale(0.92); }
 
-.menu-button     { top: 0; left: 50%; transform: translate(-50%, 0); }
-.forward-button  { top: 45%; right: 0; transform: translate(0, -50%); }
-.backward-button { top: 45%; left: 0; transform: translate(0, -50%); }
-.down-button     { top: 100%; left: 50%; transform: translate(-50%, -100%); }
-.center-button   { top: 45%; left: 50%; width: 90px; height: 90px; background: rgba(255,255,255,0.25); transform: translate(-50%, -50%); }
+.menu-button     { top: 0; left: 50%; }
+.forward-button  { top: 45%; right: 0; }
+.backward-button { top: 45%; left: 0; }
+.down-button     { top: 100%; left: 50%; }
+.center-button   { top: 45%; left: 50%; width: 90px; height: 90px; }
 
-.ipod-buttons button:focus-visible { box-shadow: 0 0 0 2px #fff3; }
 
 .hint { opacity: 0.8; font-size: 12px; margin-top: 10px; text-align: center; }
