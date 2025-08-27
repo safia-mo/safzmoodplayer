@@ -93,12 +93,16 @@ body {
   z-index: 10;
   pointer-events: auto;
 }
-.ipod-buttons button:active { transform: none; }
+.menu-button:active     { transform: translate(-50%, 0) scale(0.95); }
+.forward-button:active  { transform: translate(0, -50%) scale(0.95); }
+.backward-button:active { transform: translate(0, -50%) scale(0.95); }
+.down-button:active     { transform: translate(-50%, -50%) scale(0.95); }
+.center-button:active   { transform: translate(-50%, -50%) scale(0.95); }
 
 .menu-button     { top: 0; left: 50%; transform: translate(-50%, 0); }
 .forward-button  { top: 45%; right: 0; transform: translate(0, -50%); }
 .backward-button { top: 45%; left: 0; transform: translate(0, -50%); }
-.down-button     { top: 90%; left: 50%; transform: translate(-50%, -50%); }
+.down-button     { top: 80%; left: 50%; transform: translate(-50%, -50%); }
 .center-button   { top: 45%; left: 50%; width: 90px; height: 90px; transform: translate(-50%, -50%); }
 
 
