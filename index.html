@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPod YouTube Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ipod" aria-label="iPod YouTube Player">
+    <img src="ipod.png" alt="iPod" class="ipod-image" />
+
+    <div class="ipod-screen" role="region" aria-label="iPod screen">
+      <div id="screen-content">
+        <ul class="mood-list" id="mood-list" aria-label="Mood playlists">
+          <li class="mood-item active" data-playlist="PL9e9BwsIgtNevZi9wPGvqKGax1SOvgepj">Happy</li>
+          <li class="mood-item" data-playlist="PL9e9BwsIgtNf5a9zFz0d6d6LZb0n0g0g0">Chill</li>
+          <li class="mood-item" data-playlist="PL1112131415">Focus</li>
+        </ul>
+        <div id="player"></div>
+      </div>
+      <div id="screen-overlay">Select a mood</div>
+    </div>
+
+    <div class="ipod-buttons" aria-label="iPod controls">
+      <button class="menu-button" aria-label="Menu" title="Menu"></button>
+      <button class="forward-button" aria-label="Next" title="Next / Menu Down"></button>
+      <button class="backward-button" aria-label="Previous" title="Previous / Menu Up"></button>
+      <button class="down-button" aria-label="Play/Pause" title="Play / Pause"></button>
+      <button class="center-button" aria-label="Select" title="Select"></button>
+    </div>
+  </div>
+
+  <p class="hint">Tip: Use the click wheel buttons. In Menu view, Left/Right move selection. Center starts playback. Menu returns to moods. Bottom button toggles Play/Pause.</p>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
