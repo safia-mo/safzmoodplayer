@@ -96,7 +96,9 @@ const btnCenter = document.querySelector(".center-button");
 btnMenu.addEventListener("click", () => {
   if (mode === "playing") {
     showMenu();
-  } else {
+  } else if (mode === "menu") {
+    showPlayer();
+  }else {
     setOverlay("Select a mood");
   }
 });
