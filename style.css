@@ -1,8 +1,8 @@
 :root {
   --primary: white;
   --background:black;
-  --screen-w: 270px;
-  --screen-h: 200px;
+  --screen-w: 278px;
+  --screen-h: 207px;
 }
 
 body {
@@ -17,6 +17,244 @@ body {
   filter: brightness(0.93);
   align-items: center; 
 }
+
+.background {
+  position: absolute;
+  inset: 0;
+}
+
+/* Grain texture overlay */
+@keyframes hero-gradient-animation {
+    0% {
+        --c-0: hsla(216, 42%, 14%, 1);
+        --x-0: 48%;
+        --y-0: 33%;
+        --s-start-0: 4%;
+        --s-end-0: 71%;
+        --c-1: hsla(303, 69%, 10%, 1);
+        --x-1: 41%;
+        --y-1: 32%;
+        --s-start-1: 4%;
+        --s-end-1: 71%;
+        --c-2: hsla(229, 43%, 9%, 1);
+        --x-2: 93%;
+        --y-2: 25%;
+        --s-start-2: 4%;
+        --s-end-2: 71%;
+        --c-3: hsla(266, 54%, 1%, 1);
+        --x-3: 27%;
+        --y-3: 35%;
+        --s-start-3: 4%;
+        --s-end-3: 71%;
+        --c-4: hsla(271, 57%, 23%, 1);
+        --x-4: 66%;
+        --y-4: 48%;
+        --s-start-4: 4%;
+        --s-end-4: 71%;
+    }
+
+    100% {
+        --c-0: hsla(162, 45%, 15%, 1);
+        --x-0: 87%;
+        --y-0: 77%;
+        --s-start-0: 4%;
+        --s-end-0: 71%;
+        --c-1: hsla(151, 26%, 46%, 1);
+        --x-1: 96%;
+        --y-1: 49%;
+        --s-start-1: 4%;
+        --s-end-1: 71%;
+        --c-2: hsla(293, 59%, 32%, 1);
+        --x-2: 73%;
+        --y-2: 13%;
+        --s-start-2: 4%;
+        --s-end-2: 71%;
+        --c-3: hsla(246, 51%, 1%, 1);
+        --x-3: 83%;
+        --y-3: 72%;
+        --s-start-3: 4%;
+        --s-end-3: 71%;
+        --c-4: hsla(252, 27%, 26%, 1);
+        --x-4: 38%;
+        --y-4: 69%;
+        --s-start-4: 4%;
+        --s-end-4: 71%;
+    }
+}
+
+@property --c-0 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(216, 42%, 14%, 1)
+}
+
+@property --x-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 48%
+}
+
+@property --y-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 33%
+}
+
+@property --s-start-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 4%
+}
+
+@property --s-end-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 71%
+}
+
+@property --c-1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(303, 69%, 10%, 1)
+}
+
+@property --x-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 41%
+}
+
+@property --y-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 32%
+}
+
+@property --s-start-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 4%
+}
+
+@property --s-end-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 71%
+}
+
+@property --c-2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(229, 43%, 9%, 1)
+}
+
+@property --x-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 93%
+}
+
+@property --y-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 25%
+}
+
+@property --s-start-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 4%
+}
+
+@property --s-end-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 71%
+}
+
+@property --c-3 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(266, 54%, 1%, 1)
+}
+
+@property --x-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 27%
+}
+
+@property --y-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 35%
+}
+
+@property --s-start-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 4%
+}
+
+@property --s-end-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 71%
+}
+
+@property --c-4 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(271, 57%, 23%, 1)
+}
+
+@property --x-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 66%
+}
+
+@property --y-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 48%
+}
+
+@property --s-start-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 4%
+}
+
+@property --s-end-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 71%
+}
+
+.background {
+    --c-0: hsla(216, 42%, 14%, 1);
+    --x-0: 48%;
+    --y-0: 33%;
+    --c-1: hsla(303, 69%, 10%, 1);
+    --x-1: 41%;
+    --y-1: 32%;
+    --c-2: hsla(229, 43%, 9%, 1);
+    --x-2: 93%;
+    --y-2: 25%;
+    --c-3: hsla(266, 54%, 1%, 1);
+    --x-3: 27%;
+    --y-3: 35%;
+    --c-4: hsla(271, 57%, 23%, 1);
+    --x-4: 66%;
+    --y-4: 48%;
+    ;
+    background-color: hsla(234, 51%, 47%, 1);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 490 490' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4));
+    animation: hero-gradient-animation 10s linear infinite alternate;
+    background-blend-mode: overlay, normal, normal, normal, normal, normal;
+}
+
 @font-face { font-family: 'IntraNet'; src: url('fonts/IntraNet.otf') format('opentype'); font-weight: normal; font-style: normal; } 
 #player-title { 
     font-family: 'IntraNet', sans-serif;
@@ -33,9 +271,9 @@ body {
 }
 
 .ipod { 
-    position: relative;
-     display: flex;
-     flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-end; 
   transform: scale(1.25)  translateX(40%);
@@ -45,8 +283,8 @@ body {
 
 .ipod-screen {
   position: absolute;
-  top: 136px;
-  left: 239px;
+  top: 131px;
+  left: 237px;
   width: var(--screen-w);
   height: var(--screen-h);
   background: var(--background);
