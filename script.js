@@ -62,7 +62,15 @@ function startPlayback() {
     player = new YT.Player("player", {
       height: "100%",
       width: "100%",
-      playerVars: { listType: "playlist", list: listId, index: 0 },
+      playerVars: { 
+        listType: "playlist", 
+        list: listId, 
+        index: 0,
+        controls: 0,       
+        disablekb: 1,
+        modestbranding: 1,
+        rel: 0,
+        fs: 0   },
       events: {
         onReady: () => {
           setOverlay("Playing…");
