@@ -50,6 +50,8 @@ function currentPlaylistId() {
   return getPlaylistId(li?.dataset.playlist);
 }
 
+let currentListId = null;
+
 function startPlayback() {
   const listId = currentPlaylistId();
   if (!listId) {
@@ -89,8 +91,13 @@ function startPlayback() {
         },
       });
      } else {
-    player.loadPlaylist({ list: listId, listType: "playlist", index: 0 });
-    player.playVideo && player.playVideo();
+         player.stopVideo();
+         player.loadPlaylist({
+         list: listId,
+         listType: "playlist",
+         index: 0
+    });
+    player.playVideo();
   }
 }
 
