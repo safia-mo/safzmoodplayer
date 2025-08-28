@@ -15,10 +15,33 @@ body {
   margin: 0;
   overflow: hidden;
   filter: brightness(0.93);
+  align-items: center; 
+}
+@font-face { font-family: 'IntraNet'; src: url('fonts/IntraNet.otf') format('opentype'); font-weight: normal; font-style: normal; } 
+#player-title { 
+    font-family: 'IntraNet', sans-serif;
+    font-size: 12vh; 
+    text-align: left; 
+    margin-top: 25px; 
+    position: absolute; 
+    left: 5%; top: 25%; 
+    align-items: flex-start; 
+    flex-direction: column; 
+    position: absolute; 
+    gap: 2vh; 
+    display: flex;
 }
 
-.ipod { position: relative; display: inline-block; }
-.ipod-image { display: block; width: min(95vw, 750px); height: auto; }
+.ipod { 
+    position: relative;
+     display: flex;
+     flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; 
+  transform: scale(1.25)  translateX(40%);
+  overflow: hidden;
+ }
+.ipod-image { display: relative; width: min(95vw, 750px); height: auto; }
 
 .ipod-screen {
   position: absolute;
